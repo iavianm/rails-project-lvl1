@@ -2,7 +2,7 @@
 
 module HexletCode
   class Tag
-    def self.build (tag, options = {}, &block)
+    def self.build(tag, options = {}, &block)
       "<#{tag}>#{block.call}></#{tag}>" if options.empty? && block_given?
 
       if block_given?
