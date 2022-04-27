@@ -1,4 +1,4 @@
-![CI status](https://github.com/iavianm/rails-project-lvl1/actions/workflows/master.yml/badge.svg)
+[![hexlet-check](https://github.com/iavianm/rails-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/iavianm/rails-project-lvl1/actions/workflows/hexlet-check.yml)
 
 # HexletCode
 
