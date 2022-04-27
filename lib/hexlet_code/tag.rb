@@ -2,22 +2,23 @@
 
 module HexletCode
   class Tag
+    def self.options(hash)
+      attr = []
+      hash.map { |key, value| attr << " #{key}=\"#{value}\"" }
+    end
+
     def self.build(tag, options = {}, &block)
       "<#{tag}>#{block.call}></#{tag}>" if options.empty? && block_given?
 
-      if block_given?
+      if !options.nil?
         attr = []
         attr << "<#{tag}"
-        options.map { |key, value| attr << " #{key}=\"#{value}\"" }
+        attr << options(options)
         attr << '>'
-        attr << block.call
-        attr << "</#{tag}>"
-        attr.join
-      elsif !options.nil?
-        attr = []
-        attr << "<#{tag}"
-        options.map { |key, value| attr << " #{key}=\"#{value}\"" }
-        attr << '>'
+        if block_given?
+          attr << block.call
+          attr << "</#{tag}>"
+        end
         attr.join
       else
         "<#{tag}>"
